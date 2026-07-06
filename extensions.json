@@ -1,0 +1,364 @@
+{
+  "baseImage": "ghcr.io/cloudnative-pg/postgresql:18-minimal-trixie",
+  "postgresMajor": 18,
+  "debianCodename": "trixie",
+  "imageName": "ghcr.io/supafull/supabase-extensions",
+  "packagePrefix": "postgresql-${PG_MAJOR}",
+  "aptSources": [
+    {
+      "name": "pgdg",
+      "description": "PostgreSQL Global Development Group packages already available from the CloudNativePG PostgreSQL base image",
+      "originPattern": "apt.postgresql.org"
+    },
+    {
+      "name": "pigsty",
+      "description": "Pigsty PostgreSQL extension packages",
+      "originPattern": "repo.pigsty.io",
+      "keyUrl": "https://repo.pigsty.io/key",
+      "aptLine": "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/pigsty.gpg] https://repo.pigsty.io/apt/pgsql/trixie trixie main"
+    }
+  ],
+  "dependencyProbeLibraries": [
+    "pgsodium*.so",
+    "supabase_vault*.so",
+    "http*.so",
+    "pg_net*.so",
+    "libpgrouting*.so"
+  ],
+  "extensions": [
+    {
+      "id": "cron",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-cron",
+      "version": "1.6.7-2.pgdg13+1",
+      "copyName": "pg_cron",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "http",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-http",
+      "version": "1.7.1-1.pgdg13+1",
+      "copyName": "http",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "hypopg",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-hypopg",
+      "version": "1.4.3-1.pgdg13+1",
+      "copyName": "hypopg",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pgrouting",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-pgrouting",
+      "version": "4.0.1-1.pgdg13+1",
+      "copyName": "libpgrouting",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": false
+      }
+    },
+    {
+      "id": "pgrouting-scripts",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-pgrouting-scripts",
+      "version": "4.0.1-1.pgdg13+1",
+      "copyName": "pgrouting",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": false,
+        "share": true
+      }
+    },
+    {
+      "id": "pgtap",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-pgtap",
+      "version": "1.3.4-1.pgdg13+1",
+      "copyName": "pgtap",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": false,
+        "share": true
+      },
+      "notes": "Ships SQL/control files only in this image; no shared library is copied."
+    },
+    {
+      "id": "plpgsql-check",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-plpgsql-check",
+      "version": "2.9.2-1.pgdg13+1",
+      "copyName": "plpgsql_check",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "repack",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-repack",
+      "version": "1.5.3-1.pgdg13+1",
+      "copyName": "pg_repack",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      },
+      "notes": "The package name is repack, but installed extension files use pg_repack."
+    },
+    {
+      "id": "rum",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-rum",
+      "version": "1.3.15-1.pgdg13+1",
+      "copyName": "rum",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "wal2json",
+      "source": "pgdg",
+      "package": "${PKG_PREFIX}-wal2json",
+      "version": "2.6-3.pgdg13+1",
+      "copyName": "wal2json",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": false
+      },
+      "notes": "Logical decoding plugin; no extension SQL/control files are copied."
+    },
+    {
+      "id": "index-advisor",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-index-advisor",
+      "version": "0.2.0-1PIGSTY~trixie",
+      "copyName": "index_advisor",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": false,
+        "share": true
+      }
+    },
+    {
+      "id": "pg-graphql",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-graphql",
+      "version": "1.6.1-1PIGSTY~trixie",
+      "copyName": "pg_graphql",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pg-hashids",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-hashids",
+      "version": "1.3-1PIGSTY~trixie",
+      "copyName": "pg_hashids",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pg-jsonschema",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-jsonschema",
+      "version": "0.3.4-1PIGSTY~trixie",
+      "copyName": "pg_jsonschema",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pg-net",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-net",
+      "version": "0.20.3-1PIGSTY~trixie",
+      "copyName": "pg_net",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pg-plan-filter",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-plan-filter",
+      "version": "0.0.1-1PIGSTY~trixie",
+      "copyName": "plan_filter",
+      "enabled": true,
+      "copy": {
+        "license": false,
+        "lib": true,
+        "share": false
+      },
+      "notes": "Package currently exposes only a shared library in the expected PostgreSQL extension paths."
+    },
+    {
+      "id": "pg-safeupdate",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-safeupdate",
+      "version": "1.5-2PIGSTY~trixie",
+      "copyName": "safeupdate",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": false
+      },
+      "notes": "Shared library is copied; no SQL/control files are copied."
+    },
+    {
+      "id": "pg-tle",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pg-tle",
+      "version": "1.5.2-1PIGSTY~trixie",
+      "copyName": "pg_tle",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pgjwt",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pgjwt",
+      "version": "0.2.0-1PIGSTY~trixie",
+      "copyName": "pgjwt",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": false,
+        "share": true
+      },
+      "notes": "Ships SQL/control files only in this image; no shared library is copied."
+    },
+    {
+      "id": "pgmq",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pgmq",
+      "version": "1.11.1-1PIGSTY~trixie",
+      "copyName": "pgmq",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": false,
+        "share": true
+      },
+      "notes": "Ships SQL/control files only in this image; no shared library is copied."
+    },
+    {
+      "id": "pgsodium",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pgsodium",
+      "version": "3.1.9-1PIGSTY~trixie",
+      "copyName": "pgsodium",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "supautils",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-supautils",
+      "version": "3.2.1-1PIGSTY~trixie",
+      "copyName": "supautils",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": false
+      },
+      "notes": "Shared library is copied; no SQL/control files are copied."
+    },
+    {
+      "id": "vault",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-vault",
+      "version": "0.3.1-1PIGSTY~trixie",
+      "copyName": "supabase_vault",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "wrappers",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-wrappers",
+      "version": "0.6.1-1PIGSTY~trixie",
+      "copyName": "wrappers",
+      "enabled": true,
+      "copy": {
+        "license": true,
+        "lib": true,
+        "share": true
+      }
+    },
+    {
+      "id": "pgroonga",
+      "source": "pigsty",
+      "package": "${PKG_PREFIX}-pgroonga",
+      "version": "4.0.4-1PIGSTY~trixie",
+      "copyName": "pgroonga",
+      "enabled": false,
+      "reason": "Excluded until its additional runtime/system dependencies are handled in the ImageVolume payload.",
+      "copy": {
+        "license": false,
+        "lib": false,
+        "share": false
+      }
+    }
+  ]
+}

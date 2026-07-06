@@ -1,0 +1,78 @@
+name: Extensions Image
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - "*-18-trixie"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  IMAGE_NAME: ghcr.io/supafull/supabase-extensions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+          podman --version
+
+      - name: Generate Containerfile
+        run: python3 scripts/generate-containerfile.py
+
+      - name: Validate manifest
+        run: python3 -m json.tool extensions.json > /dev/null
+
+      - name: Validate generator syntax
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Check generated files
+        run: git diff --exit-code -- images/Containerfile.extensions
+
+      - name: Log in to GHCR
+        if: startsWith(github.ref, 'refs/tags/')
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io --username "${{ github.actor }}" --password-stdin
+
+      - name: Extract release tag
+        if: startsWith(github.ref, 'refs/tags/')
+        id: release
+        run: |
+          if [[ ! "${GITHUB_REF_NAME}" =~ ^[0-9]+\.[0-9]+\.[0-9]+-18-trixie$ ]]; then
+            echo "Release tags must look like 0.0.11-18-trixie and must not start with v." >&2
+            exit 1
+          fi
+
+          echo "tag=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Build image
+        run: |
+          image_tag="ci-${GITHUB_SHA}"
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            image_tag="${{ steps.release.outputs.tag }}"
+          fi
+
+          podman build \
+            --platform linux/amd64 \
+            --file images/Containerfile.extensions \
+            --label "org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}" \
+            --label "org.opencontainers.image.description=PostgreSQL extension filesystem payload for Kubernetes ImageVolume mounts" \
+            --label "org.opencontainers.image.revision=${GITHUB_SHA}" \
+            --tag "${IMAGE_NAME}:${image_tag}" \
+            .
+
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            podman push "${IMAGE_NAME}:${image_tag}"
+          fi

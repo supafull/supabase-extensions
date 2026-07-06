@@ -1,0 +1,74 @@
+name: Update Extension Pins
+
+on:
+  schedule:
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  IMAGE_NAME: ghcr.io/supafull/supabase-extensions
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Install Podman
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y podman
+          podman --version
+
+      - name: Update package pins
+        run: python3 scripts/update-package-pins.py --summary tmp/agents/update-extension-pins.md
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if git diff --quiet -- extensions.json images/Containerfile.extensions; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Validate manifest
+        if: steps.changes.outputs.changed == 'true'
+        run: python3 -m json.tool extensions.json > /dev/null
+
+      - name: Validate generator syntax
+        if: steps.changes.outputs.changed == 'true'
+        run: python3 -m py_compile scripts/*.py
+
+      - name: Check generated files
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          python3 scripts/generate-containerfile.py
+          git diff --exit-code -- images/Containerfile.extensions
+
+      - name: Build image
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          podman build \
+            --platform linux/amd64 \
+            --file images/Containerfile.extensions \
+            --tag "${IMAGE_NAME}:update-check" \
+            .
+
+      - name: Create pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: automation/update-extension-pins
+          title: Update PostgreSQL extension package pins
+          commit-message: "chore: update PostgreSQL extension package pins"
+          body-path: tmp/agents/update-extension-pins.md
+          add-paths: |
+            extensions.json
+            images/Containerfile.extensions
