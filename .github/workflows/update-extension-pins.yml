@@ -46,11 +46,13 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         run: python3 -m py_compile scripts/*.py
 
-      - name: Check generated files
+      - name: Check generated Containerfile idempotence
         if: steps.changes.outputs.changed == 'true'
         run: |
+          before=$(sha256sum images/Containerfile.extensions)
           python3 scripts/generate-containerfile.py
-          git diff --exit-code -- images/Containerfile.extensions
+          after=$(sha256sum images/Containerfile.extensions)
+          test "$before" = "$after"
 
       - name: Build image
         if: steps.changes.outputs.changed == 'true'
