@@ -70,6 +70,8 @@ jobs:
           branch: automation/update-extension-pins
           title: Update PostgreSQL extension package pins
           commit-message: "chore: update PostgreSQL extension package pins"
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           body-path: tmp/agents/update-extension-pins.md
           add-paths: |
             extensions.json
