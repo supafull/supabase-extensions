@@ -30,7 +30,7 @@
       "id": "cron",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-cron",
-      "version": "1.6.7-2.pgdg13+1",
+      "version": "1.6.7-3.pgdg13+1",
       "copyName": "pg_cron",
       "enabled": true,
       "copy": {
