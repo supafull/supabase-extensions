@@ -109,7 +109,7 @@
       "id": "plpgsql-check",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-plpgsql-check",
-      "version": "2.10.1-1.pgdg13+1",
+      "version": "2.10.2-1.pgdg13+1",
       "copyName": "plpgsql_check",
       "enabled": true,
       "copy": {
@@ -176,7 +176,7 @@
       "id": "pg-graphql",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-graphql",
-      "version": "1.6.1-1PIGSTY~trixie",
+      "version": "1.6.1-2PIGSTY~trixie",
       "copyName": "pg_graphql",
       "enabled": true,
       "copy": {
@@ -202,7 +202,7 @@
       "id": "pg-jsonschema",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-jsonschema",
-      "version": "0.3.4-1PIGSTY~trixie",
+      "version": "0.3.4-3PIGSTY~trixie",
       "copyName": "pg_jsonschema",
       "enabled": true,
       "copy": {
@@ -215,7 +215,7 @@
       "id": "pg-net",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-net",
-      "version": "0.20.3-1PIGSTY~trixie",
+      "version": "0.20.5-1PIGSTY~trixie",
       "copyName": "pg_net",
       "enabled": true,
       "copy": {
@@ -283,7 +283,7 @@
       "id": "pgmq",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pgmq",
-      "version": "1.11.1-1PIGSTY~trixie",
+      "version": "1.12.0-1PIGSTY~trixie",
       "copyName": "pgmq",
       "enabled": true,
       "copy": {
@@ -337,7 +337,7 @@
       "id": "wrappers",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-wrappers",
-      "version": "0.6.1-1PIGSTY~trixie",
+      "version": "0.6.2-1PIGSTY~trixie",
       "copyName": "wrappers",
       "enabled": true,
       "copy": {
