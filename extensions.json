@@ -30,7 +30,7 @@
       "id": "cron",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-cron",
-      "version": "1.6.7-3.pgdg13+1",
+      "version": "1.6.8-1.pgdg13+1",
       "copyName": "pg_cron",
       "enabled": true,
       "copy": {
@@ -109,7 +109,7 @@
       "id": "plpgsql-check",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-plpgsql-check",
-      "version": "2.10.2-1.pgdg13+1",
+      "version": "2.10.9-1.pgdg13+1",
       "copyName": "plpgsql_check",
       "enabled": true,
       "copy": {
@@ -149,7 +149,7 @@
       "id": "wal2json",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-wal2json",
-      "version": "2.6-3.pgdg13+1",
+      "version": "2.6-4.pgdg13+1",
       "copyName": "wal2json",
       "enabled": true,
       "copy": {
