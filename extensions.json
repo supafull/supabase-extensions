@@ -30,7 +30,7 @@
       "id": "cron",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-cron",
-      "version": "1.6.7-3.pgdg13+1",
+      "version": "1.6.8-1.pgdg13+2",
       "copyName": "pg_cron",
       "enabled": true,
       "copy": {
@@ -43,7 +43,7 @@
       "id": "http",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-http",
-      "version": "1.7.2-2.pgdg13+1",
+      "version": "1.7.2-2.pgdg13+2",
       "copyName": "http",
       "enabled": true,
       "copy": {
@@ -56,7 +56,7 @@
       "id": "hypopg",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-hypopg",
-      "version": "1.4.3-1.pgdg13+1",
+      "version": "1.4.3-1.pgdg13+2",
       "copyName": "hypopg",
       "enabled": true,
       "copy": {
@@ -109,7 +109,7 @@
       "id": "plpgsql-check",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-plpgsql-check",
-      "version": "2.10.2-1.pgdg13+1",
+      "version": "2.10.10-1.pgdg13+2",
       "copyName": "plpgsql_check",
       "enabled": true,
       "copy": {
@@ -122,7 +122,7 @@
       "id": "repack",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-repack",
-      "version": "1.5.3-1.pgdg13+1",
+      "version": "1.5.3-1.pgdg13+2",
       "copyName": "pg_repack",
       "enabled": true,
       "copy": {
@@ -149,7 +149,7 @@
       "id": "wal2json",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-wal2json",
-      "version": "2.6-3.pgdg13+1",
+      "version": "2.6-4.pgdg13+1",
       "copyName": "wal2json",
       "enabled": true,
       "copy": {
@@ -283,7 +283,7 @@
       "id": "pgmq",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pgmq",
-      "version": "1.12.0-1PIGSTY~trixie",
+      "version": "1.13.0-1PGSTY~trixie",
       "copyName": "pgmq",
       "enabled": true,
       "copy": {
@@ -337,7 +337,7 @@
       "id": "wrappers",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-wrappers",
-      "version": "0.6.2-1PIGSTY~trixie",
+      "version": "0.6.3-1PGSTY~trixie",
       "copyName": "wrappers",
       "enabled": true,
       "copy": {
