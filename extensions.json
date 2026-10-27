@@ -56,7 +56,7 @@
       "id": "hypopg",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-hypopg",
-      "version": "1.4.3-1.pgdg13+2",
+      "version": "1.4.4-1.pgdg13+1",
       "copyName": "hypopg",
       "enabled": true,
       "copy": {
@@ -109,7 +109,7 @@
       "id": "plpgsql-check",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-plpgsql-check",
-      "version": "2.10.13-1.pgdg13+1",
+      "version": "2.10.15-1.pgdg13+1",
       "copyName": "plpgsql_check",
       "enabled": true,
       "copy": {
@@ -163,7 +163,7 @@
       "id": "index-advisor",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-index-advisor",
-      "version": "0.2.0-1PIGSTY~trixie",
+      "version": "0.2.1-1PGSTY~trixie",
       "copyName": "index_advisor",
       "enabled": true,
       "copy": {
@@ -310,7 +310,7 @@
       "id": "supautils",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-supautils",
-      "version": "3.4.4-1PGSTY~trixie",
+      "version": "4.0.0-1PGSTY~trixie",
       "copyName": "supautils",
       "enabled": true,
       "copy": {
@@ -324,7 +324,7 @@
       "id": "vault",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-vault",
-      "version": "0.3.1-1PIGSTY~trixie",
+      "version": "0.3.2-1PGSTY~trixie",
       "copyName": "supabase_vault",
       "enabled": true,
       "copy": {
@@ -337,7 +337,7 @@
       "id": "wrappers",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-wrappers",
-      "version": "0.6.3-1PGSTY~trixie",
+      "version": "0.6.4-1PGSTY~trixie",
       "copyName": "wrappers",
       "enabled": true,
       "copy": {
