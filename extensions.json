@@ -69,7 +69,7 @@
       "id": "pgrouting",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-pgrouting",
-      "version": "4.0.1-1.pgdg13+1",
+      "version": "4.0.2-1.pgdg13+1",
       "copyName": "libpgrouting",
       "enabled": true,
       "copy": {
@@ -82,7 +82,7 @@
       "id": "pgrouting-scripts",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-pgrouting-scripts",
-      "version": "4.0.1-1.pgdg13+1",
+      "version": "4.0.2-1.pgdg13+1",
       "copyName": "pgrouting",
       "enabled": true,
       "copy": {
@@ -149,7 +149,7 @@
       "id": "wal2json",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-wal2json",
-      "version": "2.6-4.pgdg13+1",
+      "version": "2.7-1.pgdg13+1",
       "copyName": "wal2json",
       "enabled": true,
       "copy": {
