@@ -56,7 +56,7 @@
       "id": "hypopg",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-hypopg",
-      "version": "1.4.4-1.pgdg13+1",
+      "version": "1.4.5-1.pgdg13+1",
       "copyName": "hypopg",
       "enabled": true,
       "copy": {
@@ -69,7 +69,7 @@
       "id": "pgrouting",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-pgrouting",
-      "version": "4.0.1-1.pgdg13+1",
+      "version": "4.0.2-1.pgdg13+1",
       "copyName": "libpgrouting",
       "enabled": true,
       "copy": {
@@ -82,7 +82,7 @@
       "id": "pgrouting-scripts",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-pgrouting-scripts",
-      "version": "4.0.1-1.pgdg13+1",
+      "version": "4.0.2-1.pgdg13+1",
       "copyName": "pgrouting",
       "enabled": true,
       "copy": {
@@ -109,7 +109,7 @@
       "id": "plpgsql-check",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-plpgsql-check",
-      "version": "2.10.15-1.pgdg13+1",
+      "version": "2.10.16-1.pgdg13+1",
       "copyName": "plpgsql_check",
       "enabled": true,
       "copy": {
@@ -149,7 +149,7 @@
       "id": "wal2json",
       "source": "pgdg",
       "package": "${PKG_PREFIX}-wal2json",
-      "version": "2.6-4.pgdg13+1",
+      "version": "2.7-1.pgdg13+1",
       "copyName": "wal2json",
       "enabled": true,
       "copy": {
@@ -176,7 +176,7 @@
       "id": "pg-graphql",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-graphql",
-      "version": "1.6.1-2PIGSTY~trixie",
+      "version": "1.6.3-1PGSTY~trixie",
       "copyName": "pg_graphql",
       "enabled": true,
       "copy": {
@@ -228,7 +228,7 @@
       "id": "pg-plan-filter",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-plan-filter",
-      "version": "0.0.1-1PIGSTY~trixie",
+      "version": "1.0.0-1PGSTY~trixie",
       "copyName": "plan_filter",
       "enabled": true,
       "copy": {
@@ -242,7 +242,7 @@
       "id": "pg-safeupdate",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-safeupdate",
-      "version": "1.5-2PIGSTY~trixie",
+      "version": "1.7-1PGSTY~trixie",
       "copyName": "safeupdate",
       "enabled": true,
       "copy": {
@@ -256,7 +256,7 @@
       "id": "pg-tle",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pg-tle",
-      "version": "1.5.2-1PIGSTY~trixie",
+      "version": "1.5.3-1PGSTY~trixie",
       "copyName": "pg_tle",
       "enabled": true,
       "copy": {
@@ -297,7 +297,7 @@
       "id": "pgsodium",
       "source": "pigsty",
       "package": "${PKG_PREFIX}-pgsodium",
-      "version": "3.1.9-1PIGSTY~trixie",
+      "version": "3.1.11-1PGSTY~trixie",
       "copyName": "pgsodium",
       "enabled": true,
       "copy": {
